@@ -65,7 +65,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/ic_launcher"/>
+                />
         </FrameLayout>
 
         <Space
@@ -90,6 +90,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/home_name"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -120,6 +121,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/home_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -150,6 +152,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/home_sort"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -180,6 +183,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/home_address"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -210,6 +214,7 @@
                 android:layout_weight="1"/>
 
             <TextView
+                android:id="@+id/home_signature"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
@@ -218,5 +223,17 @@
                 android:textSize="14sp"/>
         </LinearLayout>
 
+
+        <TextView
+            android:id="@+id/home_change"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/rect_loginout"
+            android:gravity="center"
+            android:text="切换账号"
+            android:textColor="@color/white"/>
     </LinearLayout>
 </ScrollView>

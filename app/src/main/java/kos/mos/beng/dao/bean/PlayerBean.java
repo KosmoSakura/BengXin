@@ -22,14 +22,21 @@ public class PlayerBean {
     @Unique
     private String name;//unique-属性唯一
     private String avatar;//头像
+    private String address;//圣芙蕾雅学院
+    private String sort;//分类：天命通讯
+    private String describe;//签名
     private int age;
 
-    @Generated(hash = 461461088)
-    public PlayerBean(Long id, String sex, String name, String avatar, int age) {
+    @Generated(hash = 24406121)
+    public PlayerBean(Long id, String sex, String name, String avatar,
+            String address, String sort, String describe, int age) {
         this.id = id;
         this.sex = sex;
         this.name = name;
         this.avatar = avatar;
+        this.address = address;
+        this.sort = sort;
+        this.describe = describe;
         this.age = age;
     }
 
@@ -79,5 +86,29 @@ public class PlayerBean {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getSort() {
+        return this.sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
+
+    public String getDescribe() {
+        return this.describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 }

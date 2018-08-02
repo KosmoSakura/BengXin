@@ -39,7 +39,7 @@ public class PlayerGenertor {
      * 增
      */
     public void insert(long id, String sex, String name, String avatar, int age) {
-        bean = new PlayerBean(id, sex, name, avatar, age);
+//        bean = new PlayerBean(id, sex, name, avatar, age);
         dao.insertOrReplace(bean);
     }
 

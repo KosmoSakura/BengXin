@@ -5,12 +5,17 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 
+import java.io.File;
+
 import kos.mos.beng.R;
+import kos.mos.beng.constants.Code;
 import kos.mos.beng.init.BaseActivity;
 import kos.mos.beng.tool.UDialog;
+import kos.mos.beng.tool.UIO;
 
 public class SplashActivity extends BaseActivity {
     private static String[] ABOUT_IFLYTEK = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -91,7 +96,10 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+
     private void init() {
+        Code.Config.Cache = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "sakura";
+        UIO.checkFolderExists(Code.Config.Cache);
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }
