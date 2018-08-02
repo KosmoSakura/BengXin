@@ -1,0 +1,63 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="AliAccessStaticViaInstance" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AliAccessToNonThreadSafeStaticFieldFromInstance" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AliControlFlowStatementWithoutBraces" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AliDeprecation" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AliEqualsAvoidNull" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AliLongLiteralsEndingWithLowercaseL" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AliMissingOverrideAnnotation" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AliWrapperTypeEquality" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidApacheBeanUtilsCopy" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidManuallyCreateThread" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidNewDateGetTime" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidPatternCompileInMethod" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidReturnInFinally" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidStartWithDollarAndUnderLineNaming" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaAvoidUseTimer" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaClassCastExceptionWithSubListToArrayList" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaClassCastExceptionWithToArray" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaConcurrentExceptionWithModifyOriginSubList" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaConstantFieldShouldBeUpperCase" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaDontModifyInForeachCircle" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaExceptionClassShouldEndWithException" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaServiceOrDaoClassShouldEndWithImpl" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaThreadLocalShouldRemove" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaThreadPoolCreation" enabled="true" level="KosmosError" enabled_by_default="true" />
+    <inspection_tool class="AlibabaThreadShouldSetName" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="AlibabaUnsupportedExceptionWithModifyAsList" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+    <inspection_tool class="JavaDoc" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="TOP_LEVEL_CLASS_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="" />
+        </value>
+      </option>
+      <option name="INNER_CLASS_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="" />
+        </value>
+      </option>
+      <option name="METHOD_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="@return@param@throws or @exception" />
+        </value>
+      </option>
+      <option name="FIELD_OPTIONS">
+        <value>
+          <option name="ACCESS_JAVADOC_REQUIRED_FOR" value="none" />
+          <option name="REQUIRED_TAGS" value="" />
+        </value>
+      </option>
+      <option name="IGNORE_DEPRECATED" value="false" />
+      <option name="IGNORE_JAVADOC_PERIOD" value="true" />
+      <option name="IGNORE_DUPLICATED_THROWS" value="false" />
+      <option name="IGNORE_POINT_TO_ITSELF" value="false" />
+      <option name="myAdditionalJavadocTags" value="Author:,Time:,Email:ZeroProject@foxmail.com,Description:,Ps:,eg,Email:,Event:,eg:" />
+    </inspection_tool>
+    <inspection_tool class="MapOrSetKeyShouldOverrideHashCodeEquals" enabled="true" level="KosmosWarning" enabled_by_default="true" />
+  </profile>
+</component>
