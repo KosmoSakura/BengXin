@@ -1,6 +1,10 @@
 <resources>
-    <string name="app_name">BengXin</string>
+    <string name="app_name">崩信</string>
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="about">当崩坏3角色拥有朋友圈会怎样？\n无意看到https://www.bilibili.com/video/av27976619视频，感觉非常有意思\n所有就瞎折腾了个这玩意</string>
 </resources>
