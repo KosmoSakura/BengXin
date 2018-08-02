@@ -49,4 +49,5 @@
 
     <!--以下是本项目用到的颜色-->
     <color name="toast_black">#21211d</color>
+    <color name="line">#bebebe</color>
 </resources>

@@ -20,11 +20,12 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:background="@color/default_gray_light"/>
+        android:background="@color/line"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@color/white"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -51,9 +52,9 @@
         </LinearLayout>
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1px"
             android:layout_height="match_parent"
-            android:background="@color/default_gray_light"/>
+            android:background="@color/line"/>
 
         <LinearLayout
             android:id="@+id/main_lay_two"
@@ -78,9 +79,9 @@
         </LinearLayout>
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1px"
             android:layout_height="match_parent"
-            android:background="@color/default_gray_light"/>
+            android:background="@color/line"/>
 
         <LinearLayout
             android:id="@+id/main_lay_three"
