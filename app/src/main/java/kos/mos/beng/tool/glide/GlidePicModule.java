@@ -16,7 +16,8 @@ import com.squareup.okhttp.OkHttpClient;
 
 import java.io.InputStream;
 
-import kos.mos.beng.constants.Code;
+import kos.mos.beng.constants.Config;
+
 /**
  * @Description: <p>
  * @Author: Kosmos
@@ -29,7 +30,7 @@ public class GlidePicModule implements GlideModule {
     @Override
     public void applyOptions(Context context, GlideBuilder builder) {
         builder.setDecodeFormat(DecodeFormat.PREFER_ARGB_8888);
-        builder.setDiskCache(new DiskLruCacheFactory(Code.Config.Cache, cacheSize));
+        builder.setDiskCache(new DiskLruCacheFactory( Config.Cache, cacheSize));
         MemorySizeCalculator calculator = new MemorySizeCalculator(context);
         int defaultMemoryCacheSize = calculator.getMemoryCacheSize();
         int defaultBitmapPoolSize = calculator.getBitmapPoolSize();

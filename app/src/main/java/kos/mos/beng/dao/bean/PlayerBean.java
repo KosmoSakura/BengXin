@@ -1,10 +1,9 @@
 package kos.mos.beng.dao.bean;
 
 import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Id;
-import org.greenrobot.greendao.annotation.Property;
-import org.greenrobot.greendao.annotation.Unique;
 import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.Unique;
 
 /**
  * @Description: <p>
@@ -17,35 +16,35 @@ import org.greenrobot.greendao.annotation.Generated;
 public class PlayerBean {
     @Id
     private Long id;//不能用int, autoincrement = true 主键自增）
-    @Property(nameInDb = "sex")
-    private String sex;//Property-可以自定义字段名，注意外键不能使用该属性)
+    private int sex;//男-1，女--1， ？？-0
+    private String sexStr;
     @Unique
     private String name;//unique-属性唯一
     private String avatar;//头像
     private String address;//圣芙蕾雅学院
-    private String sort;//分类：天命通讯
+    private String phoneModel;//手机型号：天命通讯
     private String describe;//签名
-    private int age;
+    private int age;//年龄
+    private boolean me;
 
-    @Generated(hash = 24406121)
-    public PlayerBean(Long id, String sex, String name, String avatar,
-            String address, String sort, String describe, int age) {
+    @Generated(hash = 1605734744)
+    public PlayerBean(Long id, int sex, String sexStr, String name, String avatar,
+                      String address, String phoneModel, String describe, int age,
+                      boolean me) {
         this.id = id;
         this.sex = sex;
+        this.sexStr = sexStr;
         this.name = name;
         this.avatar = avatar;
         this.address = address;
-        this.sort = sort;
+        this.phoneModel = phoneModel;
         this.describe = describe;
         this.age = age;
+        this.me = me;
     }
 
     @Generated(hash = 288301582)
     public PlayerBean() {
-    }
-
-    public PlayerBean(Long id) {
-        this.id = id;
     }
 
     public Long getId() {
@@ -56,12 +55,20 @@ public class PlayerBean {
         this.id = id;
     }
 
-    public String getSex() {
+    public int getSex() {
         return this.sex;
     }
 
-    public void setSex(String sex) {
+    public void setSex(int sex) {
         this.sex = sex;
+    }
+
+    public String getSexStr() {
+        return this.sexStr;
+    }
+
+    public void setSexStr(String sexStr) {
+        this.sexStr = sexStr;
     }
 
     public String getName() {
@@ -80,14 +87,6 @@ public class PlayerBean {
         this.avatar = avatar;
     }
 
-    public int getAge() {
-        return this.age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getAddress() {
         return this.address;
     }
@@ -96,12 +95,12 @@ public class PlayerBean {
         this.address = address;
     }
 
-    public String getSort() {
-        return this.sort;
+    public String getPhoneModel() {
+        return this.phoneModel;
     }
 
-    public void setSort(String sort) {
-        this.sort = sort;
+    public void setPhoneModel(String phoneModel) {
+        this.phoneModel = phoneModel;
     }
 
     public String getDescribe() {
@@ -111,4 +110,22 @@ public class PlayerBean {
     public void setDescribe(String describe) {
         this.describe = describe;
     }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean getMe() {
+        return this.me;
+    }
+
+    public void setMe(boolean me) {
+        this.me = me;
+    }
+
+
 }

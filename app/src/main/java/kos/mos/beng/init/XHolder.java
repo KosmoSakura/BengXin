@@ -18,7 +18,7 @@ public class XHolder extends RecyclerView.ViewHolder {
     }
 
     @SuppressWarnings("unchecked")
-    public <V extends View> V getView(int resId) {
+    protected  <V extends View> V getView(int resId) {
         return (V) contentView.findViewById(resId);
     }
 }

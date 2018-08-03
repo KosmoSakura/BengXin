@@ -12,13 +12,14 @@ import android.support.v4.app.ActivityCompat;
 import java.io.File;
 
 import kos.mos.beng.R;
-import kos.mos.beng.constants.Code;
+import kos.mos.beng.constants.Config;
 import kos.mos.beng.init.BaseActivity;
 import kos.mos.beng.tool.UDialog;
 import kos.mos.beng.tool.UIO;
 
 public class SplashActivity extends BaseActivity {
-    private static String[] ABOUT_IFLYTEK = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private static String[] ABOUT_IFLYTEK = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.ACCESS_WIFI_STATE"};
     private int refusedCount;//拒绝权限的次数
 
     @Override
@@ -98,8 +99,8 @@ public class SplashActivity extends BaseActivity {
 
 
     private void init() {
-        Code.Config.Cache = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "sakura";
-        UIO.checkFolderExists(Code.Config.Cache);
+        Config.Cache = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "sakura";
+        UIO.checkFolderExists(Config.Cache);
         startActivity(new Intent(this, MainActivity.class));
         finish();
     }

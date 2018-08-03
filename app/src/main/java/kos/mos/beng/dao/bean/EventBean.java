@@ -19,7 +19,12 @@ public class EventBean {
     private String name;//unique-属性唯一
     private String avatar;//头像
     private String describe;//描述
-//    private List<String> images;
+    /**
+     * sb.append(link);
+     * sb.append(",");
+     * List<String> list = Arrays.asList(databaseValue.split(","));
+     */
+    private String images;
     private String address;//圣芙蕾雅学院
     private String time;//1分钟前
     private String sort;//分类：天命通讯
@@ -29,15 +34,16 @@ public class EventBean {
     private String linkTitle;
     private String linkImage;
 
-    @Generated(hash = 1000402370)
+    @Generated(hash = 597506429)
     public EventBean(Long id, int type, String name, String avatar, String describe,
-                     String address, String time, String sort, String point,
-                     String commenter, String comment, String linkTitle, String linkImage) {
+            String images, String address, String time, String sort, String point,
+            String commenter, String comment, String linkTitle, String linkImage) {
         this.id = id;
         this.type = type;
         this.name = name;
         this.avatar = avatar;
         this.describe = describe;
+        this.images = images;
         this.address = address;
         this.time = time;
         this.sort = sort;
@@ -154,6 +160,14 @@ public class EventBean {
 
     public void setLinkImage(String linkImage) {
         this.linkImage = linkImage;
+    }
+
+    public String getImages() {
+        return this.images;
+    }
+
+    public void setImages(String images) {
+        this.images = images;
     }
 
 

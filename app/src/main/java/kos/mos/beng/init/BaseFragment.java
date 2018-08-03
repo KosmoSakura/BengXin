@@ -47,7 +47,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         xrv.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         xrv.setLoadingMoreProgressStyle(ProgressStyle.SquareSpin);//方形旋转
 //        xrv.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);//球旋转
-        xrv.setArrowImageView(R.drawable.v_down);
+        xrv.setArrowImageView(R.drawable.ic_smile);
         xrv.setAdapter(adapter);
     }
 
@@ -58,7 +58,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
 
         xrv.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         xrv.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
-        xrv.setArrowImageView(R.drawable.v_down);
+        xrv.setArrowImageView(R.drawable.ic_smile);
         xrv.setAdapter(adapter);
     }
 

@@ -1,8 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_blue">
+    android:background="#ffffff"
+    >
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/alpha_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/default_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="12dp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="通讯录"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/data_add"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="12dp"
+            app:srcCompat="@drawable/v_add"/>
+    </LinearLayout>
+
+    <x.rv.XRecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/alpha_title"
+        android:background="#ffffff"/>
+
+    <ImageView
+        android:id="@+id/data_add_middle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="50dp"
+        app:srcCompat="@drawable/v_add_circle"/>
+</RelativeLayout>

@@ -7,6 +7,7 @@ import java.util.List;
 import kos.mos.beng.dao.bean.PlayerBean;
 import kos.mos.beng.dao.gen.PlayerBeanDao;
 import kos.mos.beng.init.App;
+import kos.mos.beng.tool.UTxt;
 
 /**
  * @Description: <p>
@@ -14,23 +15,22 @@ import kos.mos.beng.init.App;
  * @Date: 2018年08月02日 11:10
  * @Email: KosmoSakura@foxmail.com
  */
-public class PlayerGenertor {
+public class PlayerHelper {
     private PlayerBeanDao dao;
-    private PlayerBean bean;
-    private static PlayerGenertor genertor;
+    private static PlayerHelper genertor;
 
     private SQLiteDatabase getDb() {
         // 通过 BaseApplication 类提供的 getDb() 获取具体 db
         return App.getInstance().getDb();
     }
 
-    private PlayerGenertor() {
+    private PlayerHelper() {
         dao = App.getInstance().getDaoSession().getPlayerBeanDao();
     }
 
-    public static PlayerGenertor getInstance() {
+    public static PlayerHelper getInstance() {
         if (genertor == null) {
-            genertor = new PlayerGenertor();
+            genertor = new PlayerHelper();
         }
         return genertor;
     }
@@ -38,10 +38,20 @@ public class PlayerGenertor {
     /**
      * 增
      */
-    public void insert(long id, String sex, String name, String avatar, int age) {
-//        bean = new PlayerBean(id, sex, name, avatar, age);
+    public void insert(PlayerBean bean) {
         dao.insertOrReplace(bean);
     }
+
+    public void insert(List<PlayerBean> list) {
+        dao.insertInTx(list);
+    }
+
+    public void insert(PlayerBean... bean) {
+        for (PlayerBean aBean : bean) {
+            dao.insertOrReplace(aBean);
+        }
+    }
+
 
     /**
      * 删
@@ -54,7 +64,7 @@ public class PlayerGenertor {
      * 改
      */
     public void change(long id, String name) {
-        bean = new PlayerBean(id);
+        PlayerBean bean = new PlayerBean();
         dao.update(bean);
     }
 
@@ -76,5 +86,17 @@ public class PlayerGenertor {
     public List<PlayerBean> Search(String name) {
         List<PlayerBean> list = dao.queryBuilder().where(PlayerBeanDao.Properties.Name.eq(name)).list();
         return list;
+    }
+
+    public PlayerBean checkMe() {
+        List<PlayerBean> list = dao.loadAll();
+        if (!UTxt.isEmpty(list)) {
+            for (int i = 0; i < list.size(); i++) {
+                if (list.get(i).getMe()) {
+                    return list.get(i);
+                }
+            }
+        }
+        return null;
     }
 }

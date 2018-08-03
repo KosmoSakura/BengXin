@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/item_data_root"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginBottom="10dp"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/item_data_icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_sakura"
+        />
+
+    <TextView
+        android:id="@+id/item_data_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/item_data_icon"
+        android:layout_toRightOf="@id/item_data_icon"
+        android:maxLength="15"
+        android:text="从神奈川从神奈川从神奈川从神奈川从神奈川"
+        android:textColor="@color/default_black"
+        android:textSize="14sp"/>
+
+    <ImageView
+        android:id="@+id/item_data_sex"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        app:srcCompat="@drawable/v_boy"
+        />
+
+    <TextView
+        android:id="@+id/item_data_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@id/item_data_icon"
+        android:layout_toRightOf="@id/item_data_icon"
+        android:maxLength="15"
+        android:text="圣芙蕾雅学院圣芙蕾雅学院圣芙蕾雅学院圣芙蕾雅学院"
+        android:textColor="@color/default_gray_light"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/item_data_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        android:maxLength="5"
+        android:text="150000"
+        android:textColor="@color/default_gray"/>
+
+</RelativeLayout>
