@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!--title-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -54,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
 
+        <!--头像-->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="80dp"
@@ -71,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="10dp"/>
 
+        <!--昵称-->
         <LinearLayout
             style="@style/info_lay"
             android:orientation="horizontal">
@@ -102,6 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 
+        <!--性别-->
         <LinearLayout
             style="@style/info_lay"
             android:orientation="horizontal">
@@ -128,42 +132,11 @@
                 android:textColor="@color/default_gray"
                 android:textSize="14sp"/>
         </LinearLayout>
-
         <Space
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
 
-        <LinearLayout
-            style="@style/info_lay"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="部署"
-                android:textColor="@color/default_black"
-                android:textSize="14sp"/>
-
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/home_sort"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="天命通讯"
-                android:textColor="@color/default_gray"
-                android:textSize="14sp"/>
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="1dp"/>
-
+        <!--地区-->
         <LinearLayout
             style="@style/info_lay"
             android:orientation="horizontal">
@@ -194,7 +167,38 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="1dp"/>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
 
+        <!--机型-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="机型"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="天命通讯"
+                android:textColor="@color/default_gray"
+                android:textSize="14sp"/>
+        </LinearLayout>
+        <!--个性签名-->
         <LinearLayout
             style="@style/info_lay"
             android:orientation="horizontal">
