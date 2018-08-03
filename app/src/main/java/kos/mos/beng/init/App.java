@@ -47,7 +47,7 @@ public class App extends Application {
          * 不设置会默认所有activity都可以显示弹窗;
          */
 //          Beta.canShowUpgradeActs.add(MainActivity.class);
-//        // 不在登录activity上显示弹窗
+//        // 不在登录activity上显示弹窗5
 //        Beta.canNotShowUpgradeActs.add(MainActivity.class);
 
         Bugly.init(this, Code.code, false);
