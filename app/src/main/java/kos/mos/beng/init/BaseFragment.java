@@ -38,12 +38,10 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
         return (V) contentView.findViewById(resId);
     }
 
-    protected void initXrv(XAdapter adapter, int res) {
-        xrv = contentView.findViewById(res);
+    protected void initXrv(XAdapter adapter) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         xrv.setLayoutManager(layoutManager);
-
         xrv.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         xrv.setLoadingMoreProgressStyle(ProgressStyle.SquareSpin);//方形旋转
 //        xrv.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);//球旋转
@@ -81,7 +79,7 @@ public abstract class BaseFragment extends Fragment implements View.OnClickListe
     }
 
     @Override
-    public final void onClick(View view) {
+    public void onClick(View view) {
         action(view.getId());
     }
 

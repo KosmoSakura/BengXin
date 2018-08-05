@@ -3,9 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/alpha_title"
@@ -54,6 +52,23 @@
         android:layout_height="match_parent"
         android:layout_below="@id/alpha_title"
         android:background="#ffffff"/>
+
+    <FrameLayout
+        android:id="@+id/data_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/alpha_title"
+        android:background="@color/white"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawableTop="@drawable/ic_empty"
+            android:gravity="center"
+            android:text="没有数据"/>
+    </FrameLayout>
 
     <ImageView
         android:id="@+id/data_add_middle"

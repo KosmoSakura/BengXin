@@ -45,19 +45,11 @@ public class UToast {
     private final int SHOW_DEFAULT_ICON = -2;
 
     public void CustomLong(String msg) {
-        showCustomToastBase(msg, true, HIDE_ICON);
+        showCustomToastBase(msg, true);
     }
 
     public void CustomShort(String msg) {
-        showCustomToastBase(msg, false, HIDE_ICON);
-    }
-
-    public void CustomShortDefault(String msg) {
-        showCustomToastBase(msg, false, SHOW_DEFAULT_ICON);
-    }
-
-    public void CustomShort(String msg, int res) {
-        showCustomToastBase(msg, false, res);
+        showCustomToastBase(msg, false);
     }
 
     public void ShortMessage(String msg) {
@@ -68,34 +60,27 @@ public class UToast {
         LongMessage(null, msg);
     }
 
-    private void showCustomToastBase(final String msg, final boolean isLong, final int res) {
-        new Thread(() -> handler.post(() -> {
-            synchronized (synObj) {
-                //加载Toast布局
-                View toastRoot = LayoutInflater.from(App.getInstance()).inflate(R.layout.lay_toast, null);
-                //初始化布局控件
-                TextView mTextView = toastRoot.findViewById(R.id.toast_base_msg);
-                //为控件设置属性
-                mTextView.setText(msg);
-                if (customToast == null) {
-                    //Toast的初始化
-                    customToast = new Toast(App.getInstance());
-                }
-                //获取屏幕高度
-                WindowManager wm = (WindowManager) App.getInstance().getSystemService(Context.WINDOW_SERVICE);
-                int height = wm.getDefaultDisplay().getHeight();
-                //Toast的Y坐标是屏幕高度的1/3，不会出现不适配的问题
-                customToast.setGravity(Gravity.BOTTOM, 0, height / 8);
-                if (isLong) {
-                    customToast.setDuration(Toast.LENGTH_LONG);
-                } else {
-                    customToast.setDuration(Toast.LENGTH_SHORT);
-                }
-                customToast.setView(toastRoot);
-                customToast.show();
-            }
-        })).start();
+    private void showCustomToastBase(final String msg, final boolean isLong) {
+        View toastRoot = LayoutInflater.from(App.getInstance()).inflate(R.layout.lay_toast, null);
+        TextView mTextView = toastRoot.findViewById(R.id.toast_base_msg);
+        mTextView.setText(msg);
+        if (customToast == null) {
+            customToast = new Toast(App.getInstance());
+        }
+        //获取屏幕高度
+        WindowManager wm = (WindowManager) App.getInstance().getSystemService(Context.WINDOW_SERVICE);
+        int height = wm.getDefaultDisplay().getHeight();
+        //Toast的Y坐标是屏幕高度的1/3，不会出现不适配的问题
+        customToast.setGravity(Gravity.BOTTOM, 0, height / 8);
+        if (isLong) {
+            customToast.setDuration(Toast.LENGTH_LONG);
+        } else {
+            customToast.setDuration(Toast.LENGTH_SHORT);
+        }
+        customToast.setView(toastRoot);
+        customToast.show();
     }
+
 
     /**
      * @param ctx 使用时的上下文

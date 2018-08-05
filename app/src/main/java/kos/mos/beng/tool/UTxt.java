@@ -63,6 +63,14 @@ public class UTxt {
         }
     }
 
+    public static String isNull(Integer str, String defaul) {
+        if (str == null) {
+            return defaul;
+        } else {
+            return String.valueOf(str);
+        }
+    }
+
     /**
      * String为空返回指定字符
      */

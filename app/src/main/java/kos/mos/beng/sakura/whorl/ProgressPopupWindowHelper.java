@@ -29,7 +29,7 @@ public class ProgressPopupWindowHelper {
         // 第三个参数是PopupWindow的高度，第四个参数指定PopupWindow能否获得焦点
         // pop = new PopupWindow(contentView, 100, 100, true);
         con = context;
-        layRoot = LayoutInflater.from(con).inflate(R.layout.lay_progress_pop, null);
+        layRoot = LayoutInflater.from(con).inflate(R.layout.pop_progress, null);
         pop = new PopupWindow(layRoot);
         pop.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
         pop.setHeight(ViewGroup.LayoutParams.WRAP_CONTENT);

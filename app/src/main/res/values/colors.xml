@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#21211d</color>
+    <color name="colorPrimaryDark">#ffffff</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="black_overlay">#66000000</color>
-    <color name="default_color">#66ccff</color>
+    <color name="default_color">#262621</color>
 
     <!--以下 默认元素颜色-->
     <color name="default_blue">#108ee9</color>
     <color name="default_blue_light">#00fdff</color>
     <color name="default_red">#f50303</color>
     <color name="default_light_blue">#5501b5c6</color>
-    <color name="default_black">#21211d</color>
+    <color name="default_black">#262621</color>
     <color name="default_gray">#666666</color>
     <color name="default_gray_light">#999999</color>
     <color name="deafult_tab_gray">#7C9494</color>
@@ -48,6 +48,6 @@
     <color name="dark_gray">#333333</color>
 
     <!--以下是本项目用到的颜色-->
-    <color name="toast_black">#21211d</color>
+    <color name="toast_black">#e021211d</color>
     <color name="line">#bebebe</color>
 </resources>

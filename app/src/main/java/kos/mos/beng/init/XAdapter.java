@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,10 +15,10 @@ import java.util.List;
  * @Email: KosmoSakura@foxmail.com
  */
 public abstract class XAdapter<B, VH extends XHolder> extends RecyclerView.Adapter<VH> {
-    protected ArrayList<B> list;
+    protected List<B> list;
 
 
-    public XAdapter(ArrayList<B> datas) {
+    public XAdapter(List<B> datas) {
         list = datas;
     }
 
@@ -27,7 +26,8 @@ public abstract class XAdapter<B, VH extends XHolder> extends RecyclerView.Adapt
     protected abstract void logic(VH holder, B bean, int position);
 
     protected View creatView(ViewGroup parent, int layout) {
-        return LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
+        return LayoutInflater.from(parent.getContext()).inflate(layout, null);
+//        return LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
     }
 
     @Override

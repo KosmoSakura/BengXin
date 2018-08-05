@@ -17,6 +17,10 @@ import kos.mos.beng.init.BaseActivity;
 import kos.mos.beng.tool.UDialog;
 import kos.mos.beng.tool.UIO;
 
+
+/**
+ * Recommended
+ */
 public class SplashActivity extends BaseActivity {
     private static String[] ABOUT_IFLYTEK = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private int refusedCount;//拒绝权限的次数
@@ -99,7 +103,7 @@ public class SplashActivity extends BaseActivity {
     private void init() {
         Config.Cache = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "sakura";
         UIO.checkFolderExists(Config.Cache);
-//        startActivity(new Intent(this, MainActivity.class));
-//        finish();
+        startActivity(new Intent(SplashActivity.this, MainActivity.class));
+        finish();
     }
 }

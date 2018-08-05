@@ -1,15 +1,12 @@
 package kos.mos.beng.init;
 
 import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
 
 import kos.mos.beng.R;
 import kos.mos.beng.constants.Code;
-import kos.mos.beng.dao.gen.DaoMaster;
-import kos.mos.beng.dao.gen.DaoSession;
 import kos.mos.beng.tool.ULog;
 
 /**
@@ -19,20 +16,16 @@ import kos.mos.beng.tool.ULog;
  * @Email: KosmoSakura@foxmail.com
  */
 public class App extends Application {
-    private SQLiteDatabase db;
-    private DaoSession mDaoSession;
     public static App instances;
 
     @Override
     public void onCreate() {
         super.onCreate();
         instances = this;
-        setDatabase();
         initBugly();
         initLog();
     }
 
-    //https://bugly.qq.com/docs/user-guide/instruction-manual-android-upgrade/?v=20180709165613
     private void initBugly() {
         Beta.largeIconId = R.mipmap.ic_launcher;//设置通知栏大图标，largeIconId为项目中的图片资源；
         Beta.smallIconId = R.mipmap.ic_launcher;//设置状态栏小图标，smallIconId为项目中的图片资源id;
@@ -61,18 +54,5 @@ public class App extends Application {
         return instances;
     }
 
-    private void setDatabase() {
-        DaoMaster.DevOpenHelper mHelper = new DaoMaster.DevOpenHelper(this, "beng-db", null);
-        db = mHelper.getWritableDatabase();
-        DaoMaster mDaoMaster = new DaoMaster(db);
-        mDaoSession = mDaoMaster.newSession();
-    }
 
-    public DaoSession getDaoSession() {
-        return mDaoSession;
-    }
-
-    public SQLiteDatabase getDb() {
-        return db;
-    }
 }

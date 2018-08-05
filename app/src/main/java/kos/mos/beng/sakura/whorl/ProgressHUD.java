@@ -42,7 +42,7 @@ public class ProgressHUD extends Dialog {
 
     public void showDialog() {
         if (!isShowing()) {
-            setContentView(R.layout.lay_progress_pop);
+            setContentView(R.layout.pop_progress);
             tMsg = findViewById(R.id.progress_msg);
             wlv = findViewById(R.id.progress_wv_p);
             layRoot = findViewById(R.id.lay_progress_root);
@@ -56,7 +56,7 @@ public class ProgressHUD extends Dialog {
 
     public void showDialog(String msg) {
         if (!isShowing()) {
-            setContentView(R.layout.lay_progress_pop);
+            setContentView(R.layout.pop_progress);
             tMsg = findViewById(R.id.progress_msg);
             wlv = findViewById(R.id.progress_wv_p);
             layRoot = findViewById(R.id.lay_progress_root);

@@ -30,8 +30,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         logic();
     }
 
-    protected void initXrv(XAdapter adapter, int res) {
-        xrv = findViewById(res);
+    protected void initXrv(XAdapter adapter) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         xrv.setLayoutManager(layoutManager);

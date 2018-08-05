@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import kos.mos.beng.R;
-import kos.mos.beng.init.App;
 
 /**
  * @Description: <p>
@@ -19,15 +18,14 @@ import kos.mos.beng.init.App;
 public class UGlide {
     public final static int FILLET_10 = 10;//圆角角度 10度
 
-    public static void loadSplash(int resourceId, ImageView tartgetIv) {
-        Glide.with(App.getInstance())
-            .load(resourceId)
+    public static void loadBanner(Context context, String url, ImageView tartgetIv) {
+        Glide.with(context)
+            .load(url)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .placeholder(R.color.default_gray)
-            .error(R.color.default_gray)
+            .placeholder(R.color.white)
+            .error(R.color.white)
             .centerCrop()
             .crossFade()
-            .transform(new TransformCircle(App.getInstance()))
             .into(tartgetIv);
     }
 
@@ -54,6 +52,7 @@ public class UGlide {
             .transform(new TransformCircle(context))
             .into(targetIv);
     }
+
     public static void loadBlurPic(Context context, String string, ImageView tartgetIv) {
         Glide.with(context)
             .load(string)
@@ -64,6 +63,7 @@ public class UGlide {
             .bitmapTransform(new TransformBlur(context, TransformBlur.MAX_RADIUS))
             .into(tartgetIv);
     }
+
     public static void loadBitmap(Context context, Bitmap bmp, ImageView tartgetIv) {
         Glide.with(context)
             .load(bmp)

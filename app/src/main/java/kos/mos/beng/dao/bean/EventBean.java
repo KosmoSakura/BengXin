@@ -1,23 +1,26 @@
 package kos.mos.beng.dao.bean;
 
+import org.greenrobot.greendao.DaoException;
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Generated;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.ToOne;
+
+import kos.mos.beng.dao.gen.DaoSession;
+import kos.mos.beng.dao.gen.EventBeanDao;
+import kos.mos.beng.dao.gen.PlayerBeanDao;
 
 /**
  * @Description: <p>
  * @Author: Kosmos
  * @Date: 2018年08月02日 11:32
  * @Email: KosmoSakura@foxmail.com
- * @Event:
  */
-@Entity
+@Entity(generateConstructors = false)
 public class EventBean {
     @Id(autoincrement = true)
-    private Long id;//不能用int, autoincrement = true 主键自增
+    private Long id;
     private int type;//1:图文，2：链接
-    private String name;//unique-属性唯一
-    private String avatar;//头像
     private String describe;//描述
     /**
      * sb.append(link);
@@ -25,36 +28,43 @@ public class EventBean {
      * List<String> list = Arrays.asList(databaseValue.split(","));
      */
     private String images;
-    private String address;//圣芙蕾雅学院
     private String time;//1分钟前
-    private String sort;//分类：天命通讯
     private String point;//点赞
-    private String commenter;//评论者
-    private String comment;//评论内容
+    private String comments;//评论者+评论内容
     private String linkTitle;
     private String linkImage;
+    private String eventAddress;
+    @ToOne
+    private PlayerBean bean;
+    /**
+     * Used to resolve relations
+     */
+    @Generated(hash = 2040040024)
+    private transient DaoSession daoSession;
+    /**
+     * Used for active entity operations.
+     */
+    @Generated(hash = 519173234)
+    private transient EventBeanDao myDao;
+    @Generated(hash = 781616881)
+    private transient boolean bean__refreshed;
 
-    @Generated(hash = 597506429)
-    public EventBean(Long id, int type, String name, String avatar, String describe,
-            String images, String address, String time, String sort, String point,
-            String commenter, String comment, String linkTitle, String linkImage) {
+    public EventBean(Long id, PlayerBean bean, int type,
+                     String images, String time, String eventAddress, String point, String comments,
+                     String linkTitle, String linkImage, String describe) {
         this.id = id;
         this.type = type;
-        this.name = name;
-        this.avatar = avatar;
         this.describe = describe;
         this.images = images;
-        this.address = address;
         this.time = time;
-        this.sort = sort;
         this.point = point;
-        this.commenter = commenter;
-        this.comment = comment;
+        this.eventAddress = eventAddress;
+        this.comments = comments;
         this.linkTitle = linkTitle;
         this.linkImage = linkImage;
+        this.bean = bean;
     }
 
-    @Generated(hash = 1783294599)
     public EventBean() {
     }
 
@@ -74,22 +84,6 @@ public class EventBean {
         this.type = type;
     }
 
-    public String getName() {
-        return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getAvatar() {
-        return this.avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
     public String getDescribe() {
         return this.describe;
     }
@@ -98,12 +92,12 @@ public class EventBean {
         this.describe = describe;
     }
 
-    public String getAddress() {
-        return this.address;
+    public String getImages() {
+        return this.images;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setImages(String images) {
+        this.images = images;
     }
 
     public String getTime() {
@@ -114,14 +108,6 @@ public class EventBean {
         this.time = time;
     }
 
-    public String getSort() {
-        return this.sort;
-    }
-
-    public void setSort(String sort) {
-        this.sort = sort;
-    }
-
     public String getPoint() {
         return this.point;
     }
@@ -130,20 +116,12 @@ public class EventBean {
         this.point = point;
     }
 
-    public String getCommenter() {
-        return this.commenter;
+    public String getComments() {
+        return this.comments;
     }
 
-    public void setCommenter(String commenter) {
-        this.commenter = commenter;
-    }
-
-    public String getComment() {
-        return this.comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setComments(String comments) {
+        this.comments = comments;
     }
 
     public String getLinkTitle() {
@@ -162,12 +140,92 @@ public class EventBean {
         this.linkImage = linkImage;
     }
 
-    public String getImages() {
-        return this.images;
+    /**
+     * To-one relationship, resolved on first access.
+     */
+    @Generated(hash = 326759599)
+    public PlayerBean getBean() {
+        if (bean != null || !bean__refreshed) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            PlayerBeanDao targetDao = daoSession.getPlayerBeanDao();
+            targetDao.refresh(bean);
+            bean__refreshed = true;
+        }
+        return bean;
     }
 
-    public void setImages(String images) {
-        this.images = images;
+    /**
+     * To-one relationship, returned entity is not refreshed and may carry only the PK property.
+     */
+    @Generated(hash = 81766737)
+    public PlayerBean peakBean() {
+        return bean;
+    }
+
+    /**
+     * called by internal mechanisms, do not call yourself.
+     */
+    @Generated(hash = 1258350067)
+    public void setBean(PlayerBean bean) {
+        synchronized (this) {
+            this.bean = bean;
+            bean__refreshed = true;
+        }
+    }
+
+    /**
+     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#delete(Object)}.
+     * Entity must attached to an entity context.
+     */
+    @Generated(hash = 128553479)
+    public void delete() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
+        myDao.delete(this);
+    }
+
+    /**
+     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#refresh(Object)}.
+     * Entity must attached to an entity context.
+     */
+    @Generated(hash = 1942392019)
+    public void refresh() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
+        myDao.refresh(this);
+    }
+
+    /**
+     * Convenient call for {@link org.greenrobot.greendao.AbstractDao#update(Object)}.
+     * Entity must attached to an entity context.
+     */
+    @Generated(hash = 713229351)
+    public void update() {
+        if (myDao == null) {
+            throw new DaoException("Entity is detached from DAO context");
+        }
+        myDao.update(this);
+    }
+
+    /**
+     * called by internal mechanisms, do not call yourself.
+     */
+    @Generated(hash = 1741896799)
+    public void __setDaoSession(DaoSession daoSession) {
+        this.daoSession = daoSession;
+        myDao = daoSession != null ? daoSession.getEventBeanDao() : null;
+    }
+
+    public String getEventAddress() {
+        return this.eventAddress;
+    }
+
+    public void setEventAddress(String eventAddress) {
+        this.eventAddress = eventAddress;
     }
 
 

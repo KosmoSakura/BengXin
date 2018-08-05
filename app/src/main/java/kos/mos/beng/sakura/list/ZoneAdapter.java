@@ -23,7 +23,7 @@ import kos.mos.beng.tool.glide.UGlide;
  * @Date: 2018年07月05日 18:12
  * @Email: KosmoSakura@foxmail.com
  */
-public class DateAdapter extends XAdapter<PlayerBean, DateAdapter.MainHolder> {
+public class ZoneAdapter extends XAdapter<PlayerBean, ZoneAdapter.MainHolder> {
     private ItemClickListener listener;
     private Context context;
 
@@ -35,7 +35,7 @@ public class DateAdapter extends XAdapter<PlayerBean, DateAdapter.MainHolder> {
         this.listener = listener;
     }
 
-    public DateAdapter(List<PlayerBean> datas, Context context) {
+    public ZoneAdapter(List<PlayerBean> datas, Context context) {
         super(datas);
         this.context = context;
     }

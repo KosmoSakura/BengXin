@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    android:background="@color/white"
+    tools:ignore="ContentDescription">
+
+    <ImageView
+        android:id="@+id/zone_head_banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:scaleType="centerCrop"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/zone_head_icon"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round"/>
+
+        <TextView
+            android:id="@+id/zone_head_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="55dp"
+            android:layout_toLeftOf="@id/zone_head_icon"
+            android:layout_toStartOf="@id/zone_head_icon"
+            android:ellipsize="start"
+            android:singleLine="true"
+            android:text="闪光的琪亚娜"
+            android:textColor="@color/default_blue"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/zone_head_describe"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@id/zone_head_icon"
+            android:layout_toStartOf="@id/zone_head_icon"
+            android:gravity="end|center_vertical"
+            android:maxLines="3"
+            android:text="被赤色夜空染色的一千株樱花在零时凋落的声音"
+            android:textColor="@color/default_black"
+            android:textSize="14sp"/>
+
+    </RelativeLayout>
+
+</FrameLayout>
