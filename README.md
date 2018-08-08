@@ -1,10 +1,13 @@
 # BengXin
 当崩坏3角色拥有朋友圈，会怎样呢？创意来自：https://www.bilibili.com/video/av27976619
-安装包：[点击下载](https://github.com/liaoinstan/SpringView/blob/master/apk/demo-release.apk?raw=true)  　　
+
+安装包：[V1.0 点击下载](https://github.com/KosmoSakura/BengXin/blob/master/show/崩信-V1_1.0-DB1.apk?raw=true) 
+ 　　
 ---
 
-![HOME](https://github.com/KosmoSakura/BengXin/blob/master/show/home.jpg)
-![HOME](https://github.com/KosmoSakura/BengXin/blob/master/show/home2.png)
+![HOME](https://github.com/KosmoSakura/BengXin/blob/master/show/1.gif)
+![HOME](https://github.com/KosmoSakura/BengXin/blob/master/show/2.gif)
+![HOME](https://github.com/KosmoSakura/BengXin/blob/master/show/3.gif)
 
 
 -------
