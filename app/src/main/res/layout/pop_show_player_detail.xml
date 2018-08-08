@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/palyer_detail_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!--头像-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/white">
+
+            <ImageView
+                android:id="@+id/home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/home_icon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_want_cry"
+                />
+        </FrameLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <!--UUID-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="UUID"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_uid"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="15"
+                android:text="K423"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <!--昵称-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="昵称"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="15"
+                android:text="琪亚娜.卡斯兰娜"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <!--性别-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="性别"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="女"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <!--年龄-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="年龄"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_age"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <!--爱好-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="爱好"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_hobby"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="15"
+                android:maxLines="1"
+                android:text="女"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <!--地区-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="地区"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_address"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="15"
+                android:maxLines="1"
+                android:text="圣芙蕾雅学院"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+
+        <!--机型-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="机型"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/home_sort"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:maxEms="15"
+                android:maxLines="1"
+                android:text="天命通讯天命通讯天命通讯天命通讯天命通讯天命通讯天命通讯天命通讯"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <!--个性签名-->
+        <LinearLayout
+            style="@style/info_lay"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="签名"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/home_signature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:maxLines="4"
+                android:text="我是HuYoNi总裁"
+                android:textColor="@color/default_gray"
+                android:textSize="12sp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
