@@ -5,7 +5,7 @@
 
 安装包：
 
-[V1.1 点击下载 解决Android 8.0 主题崩溃](https://github.com/KosmoSakura/BengXin/blob/master/show/崩信-V1_1.0-DB1.apk) 
+[V1.1 点击下载 ：解决Android 8.0 主题崩溃](https://github.com/KosmoSakura/BengXin/blob/master/show/崩信-V2_1.1-DB1.apk) 
 
 [V1.0 点击下载](https://github.com/KosmoSakura/BengXin/blob/master/show/崩信-V2_1.1-DB1.apk) 
 
