@@ -69,7 +69,8 @@
         android:layout_height="match_parent"
         android:background="#79222222"
         android:padding="20dp"
-        android:visibility="gone">
+        android:visibility="gone"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -102,11 +103,20 @@
                 android:textSize="16sp"/>
 
             <!--图片-->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/item_zone_images"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp">
+
+            </android.support.v4.view.ViewPager>
+
             <ImageView
                 android:id="@+id/item_zone_image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:visibility="gone"/>
             <!--定位-->
             <LinearLayout
                 android:layout_width="match_parent"

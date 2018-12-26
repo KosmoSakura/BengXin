@@ -17,6 +17,7 @@ import kos.mos.beng.R;
 import kos.mos.beng.dao.bean.PlayerBean;
 import kos.mos.beng.sakura.list.DateSimpleAdapter;
 import kos.mos.beng.tool.UToast;
+import kos.mos.beng.tool.UTxt;
 
 /**
  * @Description: <p>
@@ -27,7 +28,7 @@ import kos.mos.beng.tool.UToast;
 public class PoShowPlayer implements PopupWindow.OnDismissListener {
     private static PoShowPlayer player;
     private PopupWindow popupWindow;
-    private Activity activity;
+    private static Activity activity;
     private DateSimpleAdapter adapter;
 
     public static PoShowPlayer getInstance() {
@@ -38,7 +39,7 @@ public class PoShowPlayer implements PopupWindow.OnDismissListener {
     }
 
     public static PoShowPlayer getInstance(Activity act, List<PlayerBean> playerBeans) {
-        if (player == null) {
+        if (player == null || activity == null) {
             player = new PoShowPlayer(act, playerBeans);
         }
         return player;
@@ -49,12 +50,9 @@ public class PoShowPlayer implements PopupWindow.OnDismissListener {
     }
 
     private PoShowPlayer(Activity act, List<PlayerBean> playerBeans) {
-        if (playerBeans == null) {
+        if (UTxt.isEmpty(playerBeans)) {
             UToast.init().CustomShort("没有更多的账户可供选择");
-            return;
-        }
-        if (playerBeans.size() < 2) {
-            UToast.init().CustomShort("没有更多的账户可供选择");
+            clear();
             return;
         }
         activity = act;
@@ -110,9 +108,15 @@ public class PoShowPlayer implements PopupWindow.OnDismissListener {
 
     public void clear() {
         hide();
-        player = null;
-        popupWindow = null;
-        adapter = null;
+        if (player != null) {
+            player = null;
+        }
+        if (popupWindow != null) {
+            popupWindow = null;
+        }
+        if (adapter != null) {
+            adapter = null;
+        }
     }
 
     @Override

@@ -37,6 +37,8 @@ public class ZoneBinder extends XBinder<EventBean, ZoneBinder.ViewHolder> {
     public interface EventListener {
         void onOverallClick(EventBean bean);//整体
 
+        void onOverallLongClick(int pos, EventBean bean);//整体
+
         void toPoint(int position, EventBean bean);
 
         void toComment(String name, int position, EventBean bean);
@@ -66,32 +68,25 @@ public class ZoneBinder extends XBinder<EventBean, ZoneBinder.ViewHolder> {
 
         holder.tAddress.setText(UTxt.isNull(bean.getEventAddress(), "???"));
         holder.tTime.setText(UTxt.isNull(bean.getTime(), "时间不详"));
-        holder.tPoint.setText(Html.fromHtml(UTxt.isNull(bean.getPoint())));
+        holder.tPoint.setText(UTxt.isNull(bean.getPoint()));
         holder.tDescribe.setText(Html.fromHtml(UTxt.isNull(bean.getDescribe())));
 
         String images = bean.getImages();
         if (UTxt.isEmpty(images)) {
             holder.rImage.setVisibility(View.GONE);
         } else {
-            holder.rImage.setVisibility(View.VISIBLE);
-            UGlide.loadImages(context, images, holder.rImage);
+            String[] split = images.split(Code.State.MMM);
+            if (!UTxt.isEmpty(split) && !UTxt.isEmpty(split[0])) {
+                holder.rImage.setVisibility(View.VISIBLE);
+                if (bean.getType() == 3) {
+                    UGlide.loadImagesRes(context, split[0], holder.rImage);
+                } else {
+                    UGlide.loadImages(context, split[0], holder.rImage);
+                }
+            } else {
+                holder.rImage.setVisibility(View.GONE);
+            }
         }
-//        if (UTxt.isEmpty(images)) {
-//            holder.rImage.setVisibility(View.GONE);
-//        } else {
-//            List<String> list = Arrays.asList(images.split(Code.State.MMM));
-//            Log.d("Sakura", images);
-//            Log.d("Sakura", list.size() + "---" + list.get(0));
-//            Log.d("Sakura", "--------------------------------------------------------------");
-//            if (!UTxt.isEmpty(list)) {
-//                holder.rImage.setVisibility(View.VISIBLE);
-//                holder.iamges.clear();
-//                holder.iamges.addAll(list);
-//                holder.imAdapter.notifyDataSetChanged();
-//            } else {
-//                holder.rImage.setVisibility(View.GONE);
-//            }
-//        }
 
         String comment = bean.getComments();
         if (UTxt.isEmpty(comment)) {
@@ -116,6 +111,18 @@ public class ZoneBinder extends XBinder<EventBean, ZoneBinder.ViewHolder> {
             holder.rImage.setOnClickListener(view -> listener.onOverallClick(bean));
             holder.tName.setOnClickListener(view -> listener.onOverallClick(bean));
             holder.tDescribe.setOnClickListener(view -> listener.onOverallClick(bean));
+            holder.rImage.setOnLongClickListener(view -> {
+                listener.onOverallLongClick(position, bean);
+                return true;
+            });
+            holder.tName.setOnLongClickListener(view -> {
+                listener.onOverallLongClick(position, bean);
+                return true;
+            });
+            holder.tDescribe.setOnLongClickListener(view -> {
+                listener.onOverallLongClick(position, bean);
+                return true;
+            });
         }
     }
 

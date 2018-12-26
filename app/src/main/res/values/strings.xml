@@ -6,4 +6,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="user_edit_notice">点击灰色部分选择背景图，点击白色部分选择头像\n你这里坚持空着的话，我可能会给你换一张占♂位图</string>
+    <string name="Version">V3.6_db2.0</string>
 </resources>

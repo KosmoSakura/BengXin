@@ -6,6 +6,7 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="default_color">#262621</color>
+    <color name="cache">#d4000b</color>
 
     <!--以下 默认元素颜色-->
     <color name="default_blue">#8295b0</color>

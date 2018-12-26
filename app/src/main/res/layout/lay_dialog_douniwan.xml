@@ -1,0 +1,130 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/rect_rim">
+
+        <LinearLayout
+            android:id="@+id/dia_simple_ll"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/dia_simple_cancel"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:maxLines="1"
+                android:text="算了"
+                android:textColor="@color/default_blue"
+                android:textSize="14sp"
+                />
+
+            <ImageView
+                android:id="@+id/dia_simple_line_v_3"
+                android:layout_width="1dp"
+                android:layout_height="45dp"
+                android:background="@color/default_blue"
+                />
+
+            <Button
+                android:id="@+id/dia_simple_sure"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/rect_dialog"
+                android:maxLines="1"
+                android:text="进入"
+                android:textColor="@color/white"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dia_simple_line_2"
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_above="@id/dia_simple_ll"
+            android:background="@color/default_blue"
+            />
+
+        <LinearLayout
+            android:id="@+id/dia_simple_rel_txt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/dia_simple_line_2"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dia_simple_rel_txt_i"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cache_wrong"/>
+
+            <TextView
+                android:id="@+id/dia_simple_rel_txt_t"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/v_girl"
+                android:drawableLeft="@drawable/v_boy"
+                android:drawableRight="@drawable/v_girl"
+                android:drawableStart="@drawable/v_boy"
+                android:gravity="center"
+                android:text="你确定要进入基佬圈？"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/dia_simple_rel_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/dia_simple_line_2"
+            android:layout_marginBottom="2dp"
+            android:visibility="gone"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/cache_s"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:text="搞事！\n搞事！\n搞事！"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="就知道搞事!"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+
+                />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

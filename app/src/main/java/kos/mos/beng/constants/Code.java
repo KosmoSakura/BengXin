@@ -15,7 +15,7 @@ public interface Code {
         long EventId = 1;
         String UUID = "WoShiUUID";
         String split = "-";//分割
-        String MMM = "";//分割
+        String MMM = "【";//分割
     }
 
     interface Uid {
@@ -33,10 +33,11 @@ public interface Code {
         long Kallen = 501;//卡莲 Kaslana
         long Firefox = 502;//绯玉丸
 
-        long Theresa = 600;//德莉傻-阿波卡利斯
+        long Delisa = 600;//德莉傻-阿波卡利斯
         long Auto = 601;//奥托
 
         long FuHua = 700;//浮华
+        long JiJi = 701;//浮华
         long Dawei = 800;//尼古拉斯-大伟
         long Ai = 900;//爱酱
         long Captain = 1000;//舰长

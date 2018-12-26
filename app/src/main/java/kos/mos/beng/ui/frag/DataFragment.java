@@ -1,5 +1,8 @@
 package kos.mos.beng.ui.frag;
 
+import android.content.Intent;
+import android.view.View;
+
 import com.liaoinstan.springview.container.DefaultFooter;
 import com.liaoinstan.springview.container.DefaultHeader;
 import com.liaoinstan.springview.widget.SpringView;
@@ -11,9 +14,12 @@ import kos.mos.beng.R;
 import kos.mos.beng.dao.DbPlayerHelper;
 import kos.mos.beng.dao.bean.PlayerBean;
 import kos.mos.beng.init.BaseFragment;
-import kos.mos.beng.sakura.pop.PopPlayerDetail;
 import kos.mos.beng.sakura.list.DateAdapter;
+import kos.mos.beng.sakura.pop.PopPlayerDetail;
+import kos.mos.beng.tool.UDialog;
 import kos.mos.beng.tool.UToast;
+import kos.mos.beng.tool.UTxt;
+import kos.mos.beng.ui.AddPlayerActivity;
 
 /**
  * @Description: 数据页面
@@ -27,6 +33,7 @@ public class DataFragment extends BaseFragment implements SpringView.OnFreshList
     private int page = 0;
     private final int PAGE_COUNT = 10;
     private List<PlayerBean> playerBeans;
+    private View data_empty;
 //    private WeixinHeader springHeader;
 //    private List<Program> data = new ArrayList<Program>() {{
 //        add(new Program("ofo小黄车", Normal));
@@ -40,6 +47,7 @@ public class DataFragment extends BaseFragment implements SpringView.OnFreshList
 
     @Override
     protected void basis() {
+        data_empty = findView(R.id.data_empty);
         findView(R.id.alpha_title).setOnClickListener(this);
         findView(R.id.data_add).setOnClickListener(this);
 
@@ -68,8 +76,27 @@ public class DataFragment extends BaseFragment implements SpringView.OnFreshList
         //item 长点击事件
 //        springHeader.setOnProgramLongClickListener((program, holder, position) -> springHeader.removeItem(position));
 //        springHeader.freshItem(data);
-        adapter.setOnItemClickListener((bean, view) -> PopPlayerDetail.getInstance(getActivity()).show(view, bean));
-        addPageOne();
+        adapter.setOnItemClickListener(new DateAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(PlayerBean bean, View view) {
+                PopPlayerDetail.getInstance(getActivity()).show(view, bean);
+            }
+
+            @Override
+            public void onLongClick(PlayerBean bean, int position) {
+                UDialog.getInstance(getActivity(), true, true)
+                    .showSelect("你要和他从此断绝关系吗？", "确定", "取消", (result, dia) -> {
+                        dia.dismiss();
+                        try {
+                            DbPlayerHelper.delete(getActivity(), bean.getId());
+                            listData.remove(bean);
+                            adapter.notifyItemRemoved(position);
+                        } catch (Exception e) {
+                            UToast.init().CustomShort("因为某些原因，关系断绝失败");
+                        }
+                    }, null);
+            }
+        });
     }
 
     @Override
@@ -91,7 +118,14 @@ public class DataFragment extends BaseFragment implements SpringView.OnFreshList
     }
 
     private void addOneData() {
-        UToast.init().CustomShort("添加用户数据将在下个版本更新");
+        startActivity(new Intent(getActivity(), AddPlayerActivity.class));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        UDialog.getInstance().clear();
+        addPageOne();
     }
 
     @Override
@@ -105,7 +139,10 @@ public class DataFragment extends BaseFragment implements SpringView.OnFreshList
         listData.clear();
         spv.setEnableFooter(true);
         playerBeans = DbPlayerHelper.SearchAll(getActivity());
-        if (playerBeans != null) {
+        if (UTxt.isEmpty(playerBeans)) {
+            data_empty.setVisibility(View.VISIBLE);
+        } else {
+            data_empty.setVisibility(View.GONE);
             spv.setEnableFooter(playerBeans.size() > PAGE_COUNT);
             for (int i = 0; i < playerBeans.size() && i < PAGE_COUNT; i++) {
                 listData.add(playerBeans.get(i));

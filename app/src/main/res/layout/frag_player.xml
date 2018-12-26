@@ -1,111 +1,284 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/default_bg"
-    android:orientation="vertical">
-    <!--title-->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/default_color"
-        android:gravity="center"
-        android:text="崩信"
-        android:textColor="@color/white"
-        android:textSize="18sp"/>
+    android:background="@color/default_bg">
 
     <LinearLayout
-        android:id="@+id/player_zone"
-        style="@style/info_lay"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="朋友圈"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
-        <View
-            android:layout_width="25dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_more_gray"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/player_J"
-        style="@style/info_lay"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="基佬圈"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
-        <View
-            android:layout_width="25dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_more_gray"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/player_Z"
-        style="@style/info_lay"
-        android:layout_marginTop="10dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:text="同性交友平台"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
-
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
-
-        <View
-            android:layout_width="25dp"
-            android:layout_height="32dp"
-            android:background="@drawable/ic_more_gray"/>
-    </LinearLayout>
-    <Space
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--title-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/default_color"
+            android:gravity="center"
+            android:text="崩信"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+        <LinearLayout
+            android:id="@+id/player_zone"
+            style="@style/info_lay"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="朋友圈"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_more_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/player_J"
+            style="@style/info_lay"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="基佬圈"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_more_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/player_Z"
+            style="@style/info_lay"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="同性交友平台"
+                android:textColor="@color/default_black"
+                android:textSize="14sp"/>
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+            <View
+                android:layout_width="25dp"
+                android:layout_height="32dp"
+                android:background="@drawable/ic_more_gray"/>
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
 
-    <TextView
-        android:id="@+id/home_reset"
+        <TextView
+            android:id="@+id/home_setting"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="20dp"
+            android:background="@drawable/rect_warn"
+            android:gravity="center"
+            android:text="这里好像可以管理数据"
+            android:textColor="@color/white"
+            android:textSize="16sp"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/home_function"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="20dp"
-        android:background="@drawable/rect_warn"
-        android:gravity="center"
-        android:text="重置数据库"
-        android:textColor="@color/yellow"
-        android:textSize="18sp"/>
+        android:layout_height="match_parent"
+        android:background="#79222222"
+        android:padding="20dp"
+        android:visibility="gone"
+        >
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/home_player_clear"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="清除用户数据"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/home_event_clear"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="清除朋友圈"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/home_all_clear"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="清除所有数据"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/home_player_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="重置用户数据"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/home_event_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="重置朋友圈"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/home_all_reset"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="占位"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/home_function_about"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="关于"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/home_function_back"
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:background="@drawable/rect_warn"
+                    android:gravity="center"
+                    android:text="退出"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </FrameLayout>
+</FrameLayout>

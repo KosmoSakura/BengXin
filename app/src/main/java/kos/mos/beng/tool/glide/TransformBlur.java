@@ -7,12 +7,16 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
+import android.support.annotation.NonNull;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
+
+import java.security.MessageDigest;
+
 /**
  * @Description: 高斯模糊
  * @Author: Kosmos
@@ -20,9 +24,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapResource;
  * @Email: KosmoSakura@foxmail.com
  */
 public class TransformBlur implements Transformation<Bitmap> {
-
     public static int MAX_RADIUS = 25;
-
     private Context mContext;
     private BitmapPool mBitmapPool;
 
@@ -42,8 +44,9 @@ public class TransformBlur implements Transformation<Bitmap> {
         this.mRadius = radius;
     }
 
+    @NonNull
     @Override
-    public Resource<Bitmap> transform(Resource<Bitmap> resource, int outWidth, int outHeight) {
+    public Resource<Bitmap> transform(@NonNull Context context, @NonNull Resource<Bitmap> resource, int outWidth, int outHeight) {
         Bitmap source = resource.get();
 
         if (Build.VERSION.SDK_INT > 16) {
@@ -51,8 +54,8 @@ public class TransformBlur implements Transformation<Bitmap> {
 
             final RenderScript rs = RenderScript.create(mContext);
             final Allocation input = Allocation.createFromBitmap(rs, source,
-                    Allocation.MipmapControl.MIPMAP_NONE,
-                    Allocation.USAGE_SCRIPT);
+                Allocation.MipmapControl.MIPMAP_NONE,
+                Allocation.USAGE_SCRIPT);
             final Allocation output = Allocation.createTyped(rs, input.getType());
             final ScriptIntrinsicBlur script = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
             script.setRadius(mRadius /* e.g. 3.f */);
@@ -261,12 +264,11 @@ public class TransformBlur implements Transformation<Bitmap> {
 
         bitmap.setPixels(pix, 0, w, 0, 0, w, h);
         source.recycle();
-
         return BitmapResource.obtain(bitmap, mBitmapPool);
     }
 
     @Override
-    public String getId() {
-        return "BlurTransformation(radius=" + mRadius + ")";
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+
     }
 }

@@ -16,29 +16,57 @@ import kos.mos.beng.R;
  * @Author: Kosmos
  * @Date: 2018年07月06日 14:11
  * @Email: KosmoSakura@foxmail.com
- * @Event:
  */
 public class UDialog {
-    private Dialog dialog;
-
+    private static Dialog dialog;
+    private static UDialog instance;
     private EditText edt;
     private ImageView icon;
     private TextView msg, title, cancel, sure;
     private View lineTitle, lineBotton;
 
-    private static UDialog instance;
-
     public interface SureClick {
-        void OnClick(String result, Dialog dia);
+        void OnSureClick(String result, Dialog dia);
     }
 
     public interface CancelClick {
-        void OnClick(Dialog dia);
+        void OnCancelClick(Dialog dia);
     }
 
     private SureClick sureClick;
     private CancelClick cancelClick;
 
+    /**
+     * @param Cancelable 是否可以通过返回键关闭
+     * @param outside    是否可以点击外面关闭
+     */
+    public static UDialog getInstance(Context context, boolean Cancelable, boolean outside) {
+        if (instance == null || dialog == null) {
+            instance = new UDialog(context, Cancelable, outside);
+        }
+        return instance;
+    }
+
+    public static UDialog getInstance() {
+        if (instance == null) {
+            instance = new UDialog();
+        }
+        return instance;
+    }
+
+    private UDialog() {
+
+    }
+
+    public void clear() {
+        if (instance != null) {
+            instance = null;
+        }
+        if (dialog != null) {
+            dialog.dismiss();
+            dialog = null;
+        }
+    }
 
     private UDialog(Context context, boolean Cancelable, boolean outside) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -61,22 +89,14 @@ public class UDialog {
     }
 
     /**
-     * @param Cancelable 是否可以通过返回键关闭
-     * @param outside    是否可以点击外面关闭
-     */
-    public static UDialog getInstance(Context context, boolean Cancelable, boolean outside) {
-        if (instance == null) {
-            instance = new UDialog(context, Cancelable, outside);
-        }
-        return instance;
-    }
-
-    /**
      * @param msg     通知内容
      * @param strSure 确认按钮字样
-     * @param res     图标，不要填-1
      * @apiNote 显示简单的通知对话框
      */
+    public void showNotice(String msg, String strSure) {
+        show(null, msg, null, strSure, null, -1);
+    }
+
     public void showNotice(String msg, String strSure, int res) {
         show(null, msg, null, strSure, null, res);
     }
@@ -88,31 +108,29 @@ public class UDialog {
      */
     public void showNoticeConfirm(String title, String msg, String strSure, SureClick sureClick) {
         this.sureClick = sureClick;
-        show(title, msg, null, strSure, null, R.mipmap.ic_launcher);
+        show(title, msg, null, strSure, null, R.mipmap.sakura);
     }
 
     /**
      * @param msg       通知内容
      * @param strSure   确认按钮字样
      * @param strCancel 取消按钮字样
-     * @param res       图标，不要填-1
      * @apiNote 显示选择性的对话框
      */
-    public void showSelect(String msg, String strSure, String strCancel, int res, SureClick sureClick, CancelClick cancelClick) {
+    public void showSelect(String msg, String strSure, String strCancel, SureClick sureClick, CancelClick cancelClick) {
         this.sureClick = sureClick;
         this.cancelClick = cancelClick;
-        show(null, msg, null, strSure, strCancel, res);
+        show(null, msg, null, strSure, strCancel, -1);
     }
 
     /**
      * @param strTitle 对话框标题
      * @param hint     输入框提示语
-     * @param res      图标，不要填-1
      * @apiNote 显示带有输入框的对话框
      */
-    public void showInput(String strTitle, String hint, int res, SureClick sureClick) {
+    public void showInput(String strTitle, String hint, SureClick sureClick) {
         this.sureClick = sureClick;
-        show(strTitle, null, hint, null, null, res);
+        show(strTitle, null, hint, null, null, -1);
     }
 
     private void show(String strTitle, String strMsg, String strHint, String strSure, String strCancel, int res) {
@@ -158,24 +176,18 @@ public class UDialog {
             sure.setText(UTxt.isNull(strSure, "确定"));
         }
 
-        cancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (cancelClick == null) {
-                    dialog.dismiss();
-                } else {
-                    cancelClick.OnClick(dialog);
-                }
+        cancel.setOnClickListener(view -> {
+            if (cancelClick == null) {
+                dialog.dismiss();
+            } else {
+                cancelClick.OnCancelClick(dialog);
             }
         });
-        sure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (sureClick == null) {
-                    dialog.dismiss();
-                } else {
-                    sureClick.OnClick(UTxt.isNull(edt.getText().toString()), dialog);
-                }
+        sure.setOnClickListener(view -> {
+            if (sureClick == null) {
+                dialog.dismiss();
+            } else {
+                sureClick.OnSureClick(UTxt.isNull(edt.getText().toString()), dialog);
             }
         });
         dialog.show();

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_bg"
+    android:orientation="vertical">
+    <!--title-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/default_color"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/add_back"
+            android:layout_width="20dp"
+            android:layout_height="25dp"
+            app:srcCompat="@drawable/ic_back"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:text="发(造)朋友圈?"
+            android:textColor="@color/white"
+            android:textSize="18sp"/>
+
+        <ImageView
+            android:id="@+id/add_save"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="15dp"
+            app:srcCompat="@drawable/ic_publish"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/add_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/white"
+                    android:gravity="start"
+                    android:hint="这一刻的想法..."
+                    android:maxLines="7"
+                    android:padding="10dp"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <EditText
+                    android:id="@+id/add_address"
+                    style="@style/player_add"
+                    android:hint="所在位置（为空则个人信息中的位置）"
+                    android:maxLength="20"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:id="@+id/add_model"
+                    style="@style/player_add"
+                    android:hint="手机型号（为空则个人信息中的机型）"
+                    android:maxLength="20"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <EditText
+                    android:id="@+id/add_time"
+                    style="@style/player_add"
+                    android:hint="时间（为空则当前时间）"
+                    android:maxLength="20"/>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/add_at"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="提醒谁看"
+                        android:textColor="#01b5c6"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:id="@+id/add_at_del"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical|right"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_del"/>
+                </FrameLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/add_point"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="假如这些人点了赞"
+                        android:textColor="#01b5c6"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:id="@+id/add_point_del"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical|right"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_del"/>
+                </FrameLayout>
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:id="@+id/add_comment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:hint="假如这些人参与了评论"
+                        android:textColor="#01b5c6"
+                        android:textSize="14sp"/>
+
+                    <ImageView
+                        android:id="@+id/add_comment_del"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical|right"
+                        android:padding="5dp"
+                        android:src="@drawable/ic_del"/>
+                </FrameLayout>
+
+
+                <Space
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:background="@color/white"
+                        android:hint="添加多图模式，虽然没有设置图片上限，但是不建议超过9张，另外，这里的图片格式展示有点可爱，你可能会觉得奇怪，但别介意"
+                        android:maxLines="2"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:paddingTop="5dp"
+                        android:privateImeOptions="12dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/add_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="12dp"
+                            android:src="@drawable/ic_add_image"/>
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:id="@+id/add_images_txt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:hint="这些是你选择的图片，不要在意格式"
+                                android:textColor="#01b5c6"
+                                android:textSize="14sp"/>
+
+                            <ImageView
+                                android:id="@+id/add_images_txt_del"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical|right"
+                                android:padding="5dp"
+                                android:src="@drawable/ic_del"/>
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/com_lay"
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:background="#79222222"
+                android:padding="20dp"
+                android:visibility="gone"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <EditText
+                        android:id="@+id/com_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center_vertical"
+                        android:hint="评论者-名字"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/com_back_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center_vertical"
+                        android:hint="回复-名字（为空则为评论）"
+                        android:maxLines="1"
+                        android:padding="5dp"
+                        android:textSize="14sp"/>
+
+                    <EditText
+                        android:id="@+id/com_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:gravity="center_vertical"
+                        android:hint="评论的内容"
+                        android:padding="5dp"
+                        android:textSize="14sp"/>
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"/>
+
+                    <TextView
+                        android:id="@+id/com_done"
+                        android:layout_width="150dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/rect_send"
+                        android:gravity="center"
+                        android:text="添加"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"/>
+
+                </LinearLayout>
+            </FrameLayout>
+        </FrameLayout>
+    </ScrollView>
+</LinearLayout>

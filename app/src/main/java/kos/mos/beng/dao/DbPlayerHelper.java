@@ -46,8 +46,7 @@ public class DbPlayerHelper {
     /**
      * 改
      */
-    public static void change(Context context, long id, String name) {
-        PlayerBean bean = new PlayerBean();
+    public static void update(Context context, PlayerBean bean) {
         DbManager.getDaoSession(context).getPlayerBeanDao().update(bean);
     }
 
@@ -94,7 +93,7 @@ public class DbPlayerHelper {
         return newBean;
     }
 
-    public static PlayerBean checkMe(Context context) {
+    public static PlayerBean getMe(Context context) {
         List<PlayerBean> list = DbManager.getDaoSession(context).getPlayerBeanDao().loadAll();
         if (!UTxt.isEmpty(list)) {
             for (int i = 0; i < list.size(); i++) {

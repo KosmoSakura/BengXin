@@ -29,6 +29,8 @@ public class DateAdapter extends XAdapter<PlayerBean, DateAdapter.MainHolder> {
 
     public interface ItemClickListener {
         void onItemClick(PlayerBean bean, View view);
+
+        void onLongClick(PlayerBean bean, int positon);
     }
 
     public void setOnItemClickListener(ItemClickListener listener) {
@@ -74,6 +76,15 @@ public class DateAdapter extends XAdapter<PlayerBean, DateAdapter.MainHolder> {
             getView(R.id.item_data_root).setOnClickListener(view1 -> {
                 if (listener != null && getLayoutPosition() > -1 && getLayoutPosition() < list.size()) {
                     listener.onItemClick(list.get(getLayoutPosition()), view);
+                }
+            });
+            getView(R.id.item_data_root).setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if (listener != null && getLayoutPosition() > -1 && getLayoutPosition() < list.size()) {
+                        listener.onLongClick(list.get(getLayoutPosition()), getLayoutPosition());
+                    }
+                    return true;
                 }
             });
         }

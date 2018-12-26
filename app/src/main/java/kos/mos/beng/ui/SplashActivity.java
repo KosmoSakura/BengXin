@@ -16,6 +16,7 @@ import kos.mos.beng.constants.Config;
 import kos.mos.beng.init.BaseActivity;
 import kos.mos.beng.tool.UDialog;
 import kos.mos.beng.tool.UIO;
+import kos.mos.beng.tool.ULog;
 
 
 /**
@@ -100,8 +101,15 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        UDialog.getInstance().clear();
+    }
+
     private void init() {
         Config.Cache = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "sakura";
+        ULog.d("Cache:" + Config.Cache);
         UIO.checkFolderExists(Config.Cache);
         startActivity(new Intent(SplashActivity.this, MainActivity.class));
         finish();

@@ -12,9 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import kos.mos.beng.R;
-import kos.mos.beng.constants.Config;
-import kos.mos.beng.constants.DataCreator;
-import kos.mos.beng.dao.DbEventHelper;
 import kos.mos.beng.init.BaseActivity;
 import kos.mos.beng.ui.frag.DataFragment;
 import kos.mos.beng.ui.frag.PlayerFragment;
@@ -67,11 +64,11 @@ public class MainActivity extends BaseActivity {
 
         changeMenu(0);
         changeIcon(0);
-        if (Config.databaseIsEmpty(this)) {
-            new DataCreator().creatPlayer(this);
-            DbEventHelper.clear(this);
-            new DataCreator().creatEvent(this);
-        }
+//        if (Config.databaseIsEmpty(this)) {
+//            new DataCreator().creatPlayer(this);
+//            DbEventHelper.clear(this);
+//            new DataCreator().creatEvent(this);
+//        }
     }
 
     @Override

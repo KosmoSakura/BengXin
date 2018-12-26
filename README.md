@@ -1,5 +1,6 @@
 # BengXin
 当崩坏3角色拥有朋友圈，会怎样呢？创意来自：https://www.bilibili.com/video/av27976619
+**已停止维护**
 
 ---
 
@@ -21,8 +22,8 @@
 License
 -------
 
-    Copyright 2015 jianghejie
-
+    Copyright 2018 Kosmos
+    
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at

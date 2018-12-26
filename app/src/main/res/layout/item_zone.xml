@@ -20,7 +20,7 @@
             android:id="@+id/item_zone_head"
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:src="@mipmap/ic_launcher_round"/>
+            android:src="@mipmap/sakura_round"/>
 
         <LinearLayout
             android:layout_width="0dp"

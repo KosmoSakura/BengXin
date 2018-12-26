@@ -15,6 +15,7 @@ import kos.mos.beng.tool.UToast;
 import kos.mos.beng.tool.UTxt;
 import kos.mos.beng.tool.glide.UGlide;
 import kos.mos.beng.ui.AboutActivity;
+import kos.mos.beng.ui.AddPlayerActivity;
 
 /**
  * @Description: 个人信息
@@ -45,6 +46,7 @@ public class WatashiFragment extends BaseFragment {
         tMdel = findView(R.id.home_sort);
         tSignature = findView(R.id.home_signature);
         tBtn.setOnClickListener(this);
+        findView(R.id.home_edt).setOnClickListener(this);
         findView(R.id.home_info).setOnClickListener(this);
     }
 
@@ -54,19 +56,9 @@ public class WatashiFragment extends BaseFragment {
     }
 
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        includeData(Config.getMe(getActivity()), false);
-    }
-
     private void includeData(PlayerBean bean, boolean show) {
-        if (Config.getUid(getActivity()) < 1) {
-            tBtn.setText("登陆");
-        } else {
-            tBtn.setText("切换账号");
-        }
         if (bean == null) {
+            tBtn.setText("登陆");
             iAvatar.setImageResource(R.drawable.ic_want_cry);
             tUid.setText("K423");
             tName.setText("不知道我叫个啥");
@@ -78,6 +70,7 @@ public class WatashiFragment extends BaseFragment {
             tSignature.setText("没什么好说的");
             iBanner.setImageResource(R.color.white);
         } else {
+            tBtn.setText("切换账号");
             if (show) {
                 UToast.init().CustomShort("登录账户：" + UTxt.isNull(bean.getName(), "???"));
             }
@@ -94,11 +87,21 @@ public class WatashiFragment extends BaseFragment {
         }
     }
 
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.home_info:
                 startActivity(new Intent(getActivity(), AboutActivity.class));
+                break;
+            case R.id.home_edt:
+                if (Config.getUid(getActivity()) > 1 && DbPlayerHelper.getMe(getActivity()) != null) {
+                    Intent intent = new Intent(getActivity(), AddPlayerActivity.class);
+                    intent.putExtra("UserId", Config.getUid(getActivity()));
+                    startActivity(intent);
+                } else {
+                    UToast.init().CustomShort("没登录你打算给谁修改资料？");
+                }
                 break;
             case R.id.home_change://切换账号
                 PoShowPlayer.getInstance(getActivity(), DbPlayerHelper.SearchAll(getActivity()))
@@ -111,10 +114,9 @@ public class WatashiFragment extends BaseFragment {
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
+    public void onResume() {
+        super.onResume();
         PoShowPlayer.getInstance().clear();
-
+        includeData(DbPlayerHelper.getMe(getActivity()), false);
     }
-
 }

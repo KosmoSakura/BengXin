@@ -14,7 +14,7 @@ import org.greenrobot.greendao.annotation.Generated;
 public class EventBean {
     @Id
     private Long id;
-    private int type;//1:图文，2：链接
+    private int type;//1:图文，2：链接,3:数字图片
     private String describe;//描述
     /**
      * sb.append(link);
@@ -45,9 +45,11 @@ public class EventBean {
         this.comments = comments;
         this.linkTitle = linkTitle;
         this.linkImage = linkImage;
-        this.name = bean.getName();
-        this.avatar = bean.getAvatar();
-        this.phoneModel = bean.getPhoneModel();
+        if (bean != null) {
+            this.name = bean.getName();
+            this.avatar = bean.getAvatar();
+            this.phoneModel = bean.getPhoneModel();
+        }
     }
 
     public EventBean() {

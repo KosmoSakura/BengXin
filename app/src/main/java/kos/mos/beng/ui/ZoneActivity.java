@@ -1,9 +1,15 @@
 package kos.mos.beng.ui;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,7 +24,6 @@ import java.util.List;
 
 import kos.mos.beng.R;
 import kos.mos.beng.constants.Code;
-import kos.mos.beng.constants.Config;
 import kos.mos.beng.dao.DbEventHelper;
 import kos.mos.beng.dao.DbPlayerHelper;
 import kos.mos.beng.dao.bean.EventBean;
@@ -27,6 +32,7 @@ import kos.mos.beng.init.BaseActivity;
 import kos.mos.beng.sakura.list.ZoneBinder;
 import kos.mos.beng.sakura.list.ZoneCommentsAdapter;
 import kos.mos.beng.sakura.list.ZoneHeadBinder;
+import kos.mos.beng.tool.UDialog;
 import kos.mos.beng.tool.UKeyboard;
 import kos.mos.beng.tool.ULog;
 import kos.mos.beng.tool.UToast;
@@ -47,7 +53,7 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
     private EventBean bean;
     private PlayerBean me;
     private int position = -1;
-    private int eve;
+    private TextView tTitle;
 
     @Override
     protected int layout() {
@@ -56,8 +62,10 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
 
     @Override
     protected void basis() {
+        tTitle = findViewById(R.id.zone_back_t);
         tName = findViewById(R.id.item_zone_name);
         tDescribe = findViewById(R.id.item_zone_describe);
+        vPager = findViewById(R.id.item_zone_images);
         rImage = findViewById(R.id.item_zone_image);
         tAddress = findViewById(R.id.item_zone_address);
         tTime = findViewById(R.id.item_zone_time);
@@ -73,7 +81,7 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
         layDetail.setOnClickListener(this);
         findViewById(R.id.zone_send).setOnClickListener(this);
         findViewById(R.id.zone_back).setOnClickListener(this);
-        findViewById(R.id.zone_back_t).setOnClickListener(this);
+        tTitle.setOnClickListener(this);
         findViewById(R.id.zone_write).setOnClickListener(this);
 
 
@@ -85,7 +93,6 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
 
     @Override
     protected void logic() {
-        eve = 0;
         listData = new ArrayList<>();
         initXrv(R.id.recyclerview);
         zoneBinder = new ZoneBinder(this);
@@ -103,11 +110,34 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
                     UToast.init().CustomShort("数据异常");
                     return;
                 }
-                String comm = UTxt.isEmpty(bean.getPoint()) ? "" : bean.getPoint() + ",";
-                bean.setPoint(comm + UTxt.isNull(me.getName()));
+                String myName = UTxt.isNull(me.getName());
+                String olds = UTxt.isNull(bean.getPoint());
+                String news = "";
+                if (olds.contains("," + myName)) {
+                    news = olds.replace("," + myName, "");
+                } else if (olds.contains(myName)) {
+                    news = olds.replace(myName, "");
+                } else {
+                    news = olds + "," + myName;
+                }
+                bean.setPoint(news);
                 DbEventHelper.change(ZoneActivity.this, bean);
                 listData.set(pos, bean);
                 adapter.notifyItemChanged(pos);
+            }
+
+            @Override
+            public void onOverallLongClick(int pos, EventBean bean) {
+                UDialog.getInstance(ZoneActivity.this, true, true)
+                    .showSelect("要删除这条朋友圈吗？", "删", "不删", new UDialog.SureClick() {
+                        @Override
+                        public void OnSureClick(String result, Dialog dia) {
+                            dia.dismiss();
+                            DbEventHelper.delete(ZoneActivity.this, bean);
+                            listData.remove(pos);
+                            adapter.notifyItemRemoved(pos);
+                        }
+                    }, null);
             }
 
             @Override
@@ -123,10 +153,10 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
             public void toComment(String name, int pos, EventBean dto) {
                 ULog.d("回复：" + name);
                 ULog.d("我的：" + me.getName());
-//                if (name.equals(me.getName())) {
-//                    UToast.init().CustomShort("不能回复自己");
-//                    return;
-//                }
+                if (name.contains(me.getName())) {
+                    UToast.init().CustomShort("不能回复自己");
+                    return;
+                }
                 bean = dto;
                 strName = name;
                 position = pos;
@@ -208,22 +238,18 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
     }
 
     private void addOneData() {
-        UToast.init().CustomShort("添加事件数据将在下个版本更新");
+        startActivity(new Intent(this, AddEventActivity.class));
     }
 
     private void inflashAll() {
         listData.clear();
-        me = Config.getMe(this);
+        me = DbPlayerHelper.getMe(this);
         if (me != null) {
+            tTitle.setText(UTxt.isNull(me.getName(), "???"));
             listData.add(me);
         }
-        if (UTxt.isEmpty(playerBeans)) {
-            playerBeans = DbEventHelper.SearchAll(this);
-        }
-        if (playerBeans != null) {
-            if (eve == 1) {
-                listData.add(caidan());
-            }
+        playerBeans = DbEventHelper.SearchAllFan(this);
+        if (!UTxt.isEmpty(playerBeans)) {
             listData.addAll(playerBeans);
         }
         page = 0;
@@ -232,39 +258,8 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
         adapter.notifyDataSetChanged();
     }
 
-    private EventBean caidan() {
-        return new EventBean(Code.State.EventId, DbPlayerHelper.Search(this, Code.Uid.Dawei), 1,
-            "", "刚刚", "天命空港",
-            "奥托主教，德莉莎·阿波卡利斯，幽兰戴尔，可可利亚",
-            parseComments("奥托主教", "天命已出动神机巴德尔部队，由幽兰戴尔指挥") + Code.State.split +
-                parseComments("德莉莎·阿波卡利斯", "极东支部休伯利安号正在搜寻原舰长信号来源") + Code.State.split +
-                parseComments("可可利亚", "逆熵机甲已进入隐形搜寻模式"),
-            null, null,
-            "<font color= '#732b90'>紧急通知！！！" +
-                "<br/>已殉职休伯利安号舰长的通讯设备现已遗失。" +
-                "<br/>现很可能已经落入外人手中" +
-                "<br/>全体成员立即出动。" +
-                "<br/>务必在机密泄露之前抓回此人。" +
-                "<br/>不论生死。</font>");
-    }
-
-    private void inflashPageOne() {
-        page = 0;
-        spv.setEnableFooter(true);
-        listData.clear();
-        playerBeans = DbEventHelper.SearchAll(this);
-        if (playerBeans != null) {
-            spv.setEnableFooter(playerBeans.size() > PAGE_COUNT);
-            for (int i = 0; i < playerBeans.size() && i < PAGE_COUNT; i++) {
-                listData.add(playerBeans.get(i));
-            }
-        }
-        adapter.notifyDataSetChanged();
-    }
-
     @Override
     public void onRefresh() {
-        eve++;
         inflashAll();
         spv.onFinishFreshAndLoad();
     }
@@ -289,6 +284,7 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
     }
 
     private TextView tName, tDescribe, tAddress, tModel, tTime, tPoint;
+    private ViewPager vPager;
     private ImageView rImage;
     private RecyclerView rList;
 
@@ -301,13 +297,45 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
         tTime.setText(UTxt.isNull(dto.getTime(), "时间不详"));
         tPoint.setText(Html.fromHtml(UTxt.isNull(dto.getPoint())));
         tDescribe.setText(Html.fromHtml(UTxt.isNull(dto.getDescribe())));
+        Log.d("Sakura", "--------------------------------------------------------------");
         String images = dto.getImages();
         if (UTxt.isEmpty(images)) {
+            vPager.setVisibility(View.GONE);
             rImage.setVisibility(View.GONE);
         } else {
-            rImage.setVisibility(View.VISIBLE);
-            UGlide.loadImages(this, images, rImage);
+            String[] split = images.split(Code.State.MMM);
+//            List<String> list = Arrays.asList(images.split(Code.State.MMM));
+            if (!UTxt.isEmpty(split) && !UTxt.isEmpty(split[0])) {
+                if (split.length > 1) {
+                    rImage.setVisibility(View.GONE);
+                    vPager.setVisibility(View.VISIBLE);
+                    ImageView[] arr = new ImageView[split.length];
+                    for (int i = 0; i < split.length; i++) {
+                        ImageView imageView = new ImageView(ZoneActivity.this);
+//                        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                        if (dto.getType() == 3) {
+                            UGlide.loadImagesRes(this, split[i], imageView);
+                        } else {
+                            UGlide.loadImages(this, split[i], imageView);
+                        }
+                        arr[i] = imageView;
+                    }
+                    vPager.setAdapter(new GuideViewPagerAdapter(arr));
+                } else {
+                    rImage.setVisibility(View.VISIBLE);
+                    vPager.setVisibility(View.GONE);
+                    if (dto.getType() == 3) {
+                        UGlide.loadImagesRes(this, split[0], rImage);
+                    } else {
+                        UGlide.loadImages(this, split[0], rImage);
+                    }
+                }
+            } else {
+                vPager.setVisibility(View.GONE);
+                rImage.setVisibility(View.GONE);
+            }
         }
+
         String comment = dto.getComments();
         if (UTxt.isEmpty(comment)) {
             rList.setVisibility(View.GONE);
@@ -350,5 +378,36 @@ public class ZoneActivity extends BaseActivity implements SpringView.OnFreshList
         UKeyboard.hideKeyBoard(this, edt);
     }
 
+    private class GuideViewPagerAdapter extends PagerAdapter {
+        private ImageView[] views;
 
+        GuideViewPagerAdapter(ImageView[] split) {
+            super();
+            this.views = split;
+        }
+
+        @Override
+        public int getCount() {
+            if (views != null) {
+                return views.length;
+            }
+            return 0;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView(views[position]);
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            container.addView(views[position], 0);
+            return views[position];
+        }
+    }
 }

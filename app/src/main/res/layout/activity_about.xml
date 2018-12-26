@@ -43,183 +43,255 @@
 
     </LinearLayout>
 
-    <Space
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:lineSpacingExtra="4dp"
-        android:padding="10dp"
-        android:text="当崩坏3角色拥有朋友圈会怎样？\n无意看到视频:av27976619，\n感觉非常有意思\n所有就瞎折腾了个这玩意\n开源地址：https://github.com/KosmoSakura/BengXin \napk下载：应该会出现在视频下面"
-        android:textColor="@color/default_gray"
-        android:textSize="14sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
 
-    <LinearLayout
-        style="@style/info_lay"
-        android:orientation="horizontal">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:lineSpacingExtra="4dp"
+                android:padding="10dp"
+                android:text="当崩坏3角色拥有朋友圈会怎样？\n无意看到视频:av27976619，\n感觉非常有意思\n所有就瞎折腾了个这玩意\n apk下载：应该会出现在视频下面"
+                android:textColor="@color/default_gray"
+                android:textSize="14sp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="创意提供"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            <LinearLayout
+                style="@style/info_lay"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Ussan"
-            android:textColor="@color/default_blue"
-            android:textSize="14sp"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="开源地址"
+                    android:textColor="@color/default_black"
+                    android:textSize="14sp"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="1px"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
 
-    <LinearLayout
-        style="@style/info_lay"
-        android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:autoLink="all"
+                    android:gravity="center"
+                    android:text="https://github.com/KosmoSakura/BengXin"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14sp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="创意连接"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            <LinearLayout
+                style="@style/info_lay"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="伽略小天QAQ"
-            android:textColor="@color/default_blue"
-            android:textSize="14sp"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="创意提供"
+                    android:textColor="@color/default_black"
+                    android:textSize="14sp"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="1px"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
 
-    <LinearLayout
-        style="@style/info_lay"
-        android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Ussan"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14sp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Code"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            <LinearLayout
+                style="@style/info_lay"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="千樱"
-            android:textColor="@color/default_blue"
-            android:textSize="14sp"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="相关情报"
+                    android:textColor="@color/default_black"
+                    android:textSize="14sp"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="1px"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
 
-    <LinearLayout
-        style="@style/info_lay"
-        android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="伽略小天QAQ"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14sp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="视频"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            <LinearLayout
+                style="@style/info_lay"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="千樱"
-            android:textColor="@color/default_blue"
-            android:textSize="14sp"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="素材来自"
+                    android:textColor="@color/default_black"
+                    android:textSize="14sp"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="1px"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
 
-    <LinearLayout
-        style="@style/info_lay"
-        android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="崩坏3、miHoYo总裁布洛妮娅"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14sp"/>
+            </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="素材来自"
-            android:textColor="@color/default_black"
-            android:textSize="14sp"/>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            <LinearLayout
+                style="@style/info_lay"
+                android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="崩坏3"
-            android:textColor="@color/default_blue"
-            android:textSize="14sp"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Code"
+                    android:textColor="@color/default_black"
+                    android:textSize="14sp"/>
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:lineSpacingExtra="2dp"
-        android:text="草履虫·卡斯兰娜 版权所有\nCopyright ® 2011-2088 Kosmos\nAll Rights Resweved"
-        android:textColor="@color/default_gray"
-        android:textSize="14sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="千樱"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+
+            <LinearLayout
+                style="@style/info_lay"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="视频"
+                    android:textColor="@color/default_black"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="千樱"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="1px"/>
+
+            <LinearLayout
+                style="@style/info_lay"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="当前版本"
+                    android:textColor="@color/default_black"
+                    android:textSize="14sp"/>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/Version"
+                    android:textColor="@color/default_blue"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="50dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:lineSpacingExtra="2dp"
+                android:text="神恩·送锅 版权所有\nCopyright ® 2011-2088 Kosmos\nAll Rights Resweved"
+                android:textColor="@color/default_gray"
+                android:textSize="14sp"/>
+        </LinearLayout>
+    </ScrollView>
+
 
 </LinearLayout>

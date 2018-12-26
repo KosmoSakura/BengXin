@@ -13,15 +13,10 @@ import kos.mos.beng.dao.bean.PlayerBean;
  * @Author: Kosmos
  * @Date: 2018年08月03日 13:58
  * @Email: KosmoSakura@foxmail.com
- * @Event:
  */
 public class Config {
     public static String Cache = "";
     private static long me = -1;
-
-    public static PlayerBean getMe(Context context) {
-        return DbPlayerHelper.checkMe(context);
-    }
 
     public static boolean databaseIsEmpty(Context context) {
         List<PlayerBean> playerBeans = DbPlayerHelper.SearchAll(context);
@@ -36,10 +31,15 @@ public class Config {
     public static long getUid(Context context) {
         if (me < 1) {
             me = SpHelper.getInstance(context).getLong(Code.State.UUID, -1);
-            if (me < 1 && getMe(context) != null) {
-                me = getMe(context).getId();
+            PlayerBean bean = DbPlayerHelper.getMe(context);
+            if (Config.me < 1 && bean != null) {
+                Config.me = bean.getId();
             }
         }
         return me;
+    }
+
+    public static long UIDCreator() {
+        return System.currentTimeMillis();
     }
 }

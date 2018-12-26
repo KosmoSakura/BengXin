@@ -94,7 +94,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
     @Override
-    public final void onClick(View view) {
+    public void onClick(View view) {
         action(view.getId());
     }
 

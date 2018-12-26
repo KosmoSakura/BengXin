@@ -14,7 +14,9 @@ import kos.mos.beng.tool.ULog;
  * @Author: Kosmos
  * @Date: 2018年08月02日 11:48
  * @Email: KosmoSakura@foxmail.com
+ * MultiDexApplication
  */
+//@GlideModule
 public class App extends Application {
     public static App instances;
 
@@ -27,8 +29,8 @@ public class App extends Application {
     }
 
     private void initBugly() {
-        Beta.largeIconId = R.mipmap.ic_launcher;//设置通知栏大图标，largeIconId为项目中的图片资源；
-        Beta.smallIconId = R.mipmap.ic_launcher;//设置状态栏小图标，smallIconId为项目中的图片资源id;
+        Beta.largeIconId = R.mipmap.sakura;//设置通知栏大图标，largeIconId为项目中的图片资源；
+        Beta.smallIconId = R.mipmap.sakura;//设置状态栏小图标，smallIconId为项目中的图片资源id;
         Beta.showInterruptedStrategy = true;//点击过确认的弹窗在APP下次启动自动检查更新时会再次显示;
         Bugly.init(this, Code.code, false);
     }

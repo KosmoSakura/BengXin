@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.List;
 
 import kos.mos.beng.dao.bean.EventBean;
+import kos.mos.beng.dao.gen.EventBeanDao;
 import kos.mos.beng.dao.gen.PlayerBeanDao;
 import kos.mos.beng.dao.renewal.DbManager;
 import kos.mos.beng.tool.UTxt;
@@ -42,6 +43,10 @@ public class DbEventHelper {
         DbManager.getDaoSession(context).getEventBeanDao().deleteByKey(id);
     }
 
+    public static void delete(Context context, EventBean bean) {
+        DbManager.getDaoSession(context).getEventBeanDao().delete(bean);
+    }
+
     /**
      * 改
      */
@@ -59,7 +64,7 @@ public class DbEventHelper {
     public static List<EventBean> SearchAllFan(Context context) {
         return DbManager.getDaoSession(context)
             .getEventBeanDao().queryBuilder()
-            .orderAsc(PlayerBeanDao.Properties.Id).list();
+            .orderDesc(EventBeanDao.Properties.Id).list();
     }
 
     public static List<EventBean> searchSync(Context context) {
@@ -75,7 +80,7 @@ public class DbEventHelper {
     }
 
     public static boolean checked(Context context) {
-        return !UTxt.isEmpty(DbManager.getDaoSession(context).getPlayerBeanDao().loadAll());
+        return !UTxt.isEmpty(DbManager.getDaoSession(context).getEventBeanDao().loadAll());
     }
 
     /**

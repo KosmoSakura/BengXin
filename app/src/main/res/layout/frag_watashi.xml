@@ -13,13 +13,13 @@
         android:background="@color/default_color"
         android:gravity="center_vertical"
         android:orientation="horizontal">
-
+        <!--说明-->
         <ImageView
             android:id="@+id/home_info"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:padding="10dp"
-            app:srcCompat="@drawable/ic_boat"/>
+            android:padding="15dp"
+            android:src="@drawable/ic_description"/>
 
         <Space
             android:layout_width="0dp"
@@ -40,9 +40,11 @@
             android:layout_weight="1"/>
 
         <ImageView
+            android:id="@+id/home_edt"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:visibility="invisible"/>
+            android:padding="15dp"
+            android:src="@drawable/ic_edit"/>
     </LinearLayout>
 
     <ScrollView
